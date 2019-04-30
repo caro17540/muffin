@@ -4,10 +4,10 @@ from django.utils import timezone
 # Create your models here.
 
 class Post(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField("Titre", max_length=255)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
-    text = models.TextField()
+    text = models.TextField("Texte")
     author = models.ForeignKey('auth.User', on_delete=models.PROTECT)
 
     def publish(self):
